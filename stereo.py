@@ -11,6 +11,9 @@ from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 camera_left = 'data/cam0/events.txt'
 camera_right = 'data/cam1/events.txt'
 
+height = 180
+width = 240
+
 # %% Read file with a subset of events
 def extract_data(filename):
     infile = open(filename, 'r')
@@ -70,27 +73,27 @@ class item:
         self.t = t
         self.p = p
 
+def create_Buffer(x_list,y_list,t_list,p_list):
+    buffer=[]
+    for i in range(180):
+        buffer.append([None])
+    for i, y in enumerate(y_list):
+        # print(buffer[y][0])
+        if buffer[y][0] == None:
+            buffer[y][0] = item(x_list[i], t_list[i], p_list[i])
+        else:
+            buffer[y].append(item(x_list[i], t_list[i], p_list[i]))
+            
+    print("data length: ", i+1)
+    return buffer
 
+buffer_left = create_Buffer(x0,y0,t0,p0)
+buffer_right = create_Buffer(x1,y1,t1,p1)
 
+print("buffer_left height: ", len(buffer_left))
+print("buffer_left[y0] size: ", len(buffer_left[0]))
 
+print("buffer_right height: ", len(buffer_right))
+print("buffer_right[y0] size: ", len(buffer_right[0]))
 
-
-
-# %% Plot
-# img_size = (180,240)
-
-# # Brightness incremet image (Balance of event polarities)
-# img = np.zeros(img_size, np.int)
-# num_events = 2350000
-# print("numevents = ", num_events)
-# for i in range(num_events):
-#     #timestamp[i]
-#     img[y0[i],x1[i]] += (2*p1[i]-1)
-
-# fig = plt.figure()
-# fig.suptitle('Balance of event polarities')
-# #plt.imshow(img, cmap='gray')
-# maxabsval = np.amax(np.abs(img))
-# plt.imshow(img, cmap='seismic_r', clim=(-maxabsval,maxabsval))
-# plt.colorbar()
-# plt.show()
+# %%
