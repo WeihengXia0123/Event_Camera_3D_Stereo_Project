@@ -5,15 +5,15 @@ from matplotlib import pyplot as plt
 
 
 
-filename_sub_left = 'sim_flying_room_stereo/cam0/events.txt'
-filename_sub_right = 'sim_flying_room_stereo/cam1/events.txt'
+filename_sub_left = 'C:/Users/7zieg/Downloads/BioVision/cam0/events.txt'
+filename_sub_right = 'C:/Users/7zieg/Downloads/BioVision/cam1/events.txt'
 
 max_y = 180
 max_x = 240
 dis = 50
 buffer_right = np.empty((180, 0)).tolist()
 maximumTimeDifference = 0.0001
-wmi = np.zeros((max_y, max_x, 240))
+wmi = np.zeros((max_y, max_x, dis))
 search_min = (np.zeros(180))
 
 
@@ -103,17 +103,17 @@ for i in range(n):
 
 
 #last wmi aggregation
-kernel = np.ones((5,5),np.float32)/25
+kernel = np.ones((3,3),np.float32)/25
 
 # Step3: apply an average filter on WMI on x-y plane
 # kernel = np.ones((5,5),np.float32)/25
-wmi_avg = np.zeros_like(wmi)
-for disp in range(240):
-    wmi_avg[:, :, disp] = cv2.filter2D(wmi[:, :, disp], -1, kernel)
+# wmi_avg = np.zeros_like(wmi)
+# for d in range(dis):
+#     wmi_avg[:, :, d] = cv2.filter2D(wmi[:, :, d], -1, kernel)
 
 #plot disparity map
-disp = np.argmax(wmi_avg[:,:,:20],2)
-plt.imshow(disp, cmap = "gray")
+res = np.argmax(wmi, 2)
+plt.imshow(res, cmap = "gray")
 plt.show()
 
 
