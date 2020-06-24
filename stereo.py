@@ -14,7 +14,7 @@ camera_right = 'data/cam1/events.txt'
 height = 180
 width = 240
 disp_max = 10
-time_max = 0.1
+time_max = 0.01
 # %% Read file with a subset of events
 def extract_data(filename):
     infile = open(filename, 'r')
@@ -175,9 +175,10 @@ for i in range(len(t0)):
         #wmi[wmi<threhold] = 0
             
         # Step3: apply an average filter on WMI on x-y plane
-        # kernel = np.ones((5,5),np.float32)/25
-        # for disp_ in range(disp_max):
-        #     wmi_avg[disp_] = cv2.filter2D(wmi[:,:,disp_],-1,kernel)
+        kernel = np.ones((5,5),np.float32)/25
+        for disp_value in range(disp_max):
+            wmi[:,:,disp_value] = cv2.filter2D(wmi[:,:,disp_value],-1,kernel)
+            # wmi_avg[disp_] = cv2.filter2D(wmi[:,:,disp_],-1,kernel)
         
         # Step4: find maxima
         disp_map = np.amax(wmi, axis=2)
