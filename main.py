@@ -5,8 +5,8 @@ from matplotlib import pyplot as plt
 
 
 
-filename_sub_left = 'C:/Users/7zieg/Downloads/BioVision/cam0/events.txt'
-filename_sub_right = 'C:/Users/7zieg/Downloads/BioVision/cam1/events.txt'
+filename_sub_left = 'sim_flying_room_stereo/cam0/events.txt'
+filename_sub_right = 'sim_flying_room_stereo/cam1/events.txt'
 
 max_y = 180
 max_x = 240
@@ -50,7 +50,8 @@ def searchEvent(data):
 def calculateMatchingCosts(timestampleft, timestampright, weightingfunction = 1):
     timediff = timestampleft-timestampright
     if weightingfunction == 1: #inverse linear
-        return timediff
+        print(0.001-timediff)
+        return 0.001-timediff
     elif weightingfunction == 2: #inverse quadratic
         a = 1
         weight = 1/(a*np.pow(timediff,2)+0.1)
@@ -82,23 +83,25 @@ for i in range(n):
 
     #look through all possible matches
     for j in range(len(foundevents)):
-        costs = calculateMatchingCosts(events_left[i,0],foundevents[j][0])*100000
+        costs = calculateMatchingCosts(events_left[i,0],foundevents[j][0])
         disparity = int(abs(events_left[i][1]-foundevents[j][1]))
-        wmi[int(events_left[i][2]),int(events_left[i][1]),disparity] = costs
+        wmi[int(events_left[i][2]),int(events_left[i][1]),disparity-1] = costs
 
         #output of disparity map every 1000 events, refresh weighs
-        if i % 1000 == 0:
-            wmi = wmi - 1
+        if i % 100 == 0:
+            wmi = wmi - 0.0001
             wmi = wmi.clip(min=0)
-
-            # average filtering on each disparity
-            #kernel = np.ones((5, 5), np.float32) / 25
-            #wmi_avg = np.zeros_like(wmi)
-            #for disp in range(240):
-            #    wmi_avg[:, :, disp] = cv2.filter2D(wmi[:, :, disp], -1, kernel)
-            # looking for the maximum but only for the first 20 disoparity level
-            #disp = np.argmax(wmi_avg[:, :, :20], 2)
-            #plt.imshow(disp, cmap="gray")
+        if i % 10000 == 0:
+            ##average filtering on each disparity
+            kernel = np.ones((3, 3), np.float32) / 9
+            wmi_avg = np.zeros_like(wmi)
+            for disp in range(10):
+               wmi_avg[:, :, disp] = cv2.filter2D(wmi[:, :, disp], -1, kernel)
+            ##looking for the maximum but only for the first 20 disoparity level
+            disp = np.argmax(wmi_avg[:, :, :10], 2)
+            plt.imshow(disp, cmap="gray")
+            name = str(i) + "test.png"
+            plt.savefig(name)
             #plt.show()
 
 

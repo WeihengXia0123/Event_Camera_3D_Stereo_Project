@@ -1,4 +1,5 @@
 import numpy as np
+import bisect
 
 
 class Util(object):
@@ -9,7 +10,7 @@ class Util(object):
     @staticmethod
     def calculateMatchingCosts(dt, maxDt, functionType=1):
         if functionType == 1:  # inverse linear
-            return (-abs(dt) / maxDt) + 1
+            return (abs(maxDt-dt))
         elif functionType == 2:  # inverse quadratic TODO
             a = 1
             weight = 1 / (a * np.pow(dt, 2) + 0.1)
@@ -23,3 +24,4 @@ class Util(object):
     @staticmethod
     def loadEvents(path):
         return np.genfromtxt(fname=path, delimiter=' ', dtype=np.float, skip_header=0)[:]
+

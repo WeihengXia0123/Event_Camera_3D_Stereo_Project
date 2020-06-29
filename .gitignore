@@ -1,0 +1,13 @@
+/loadevents.py
+/pinhole_stereo.yaml
+/sim_flying_room_stereo_info.txt
+/test.py
+/*.png
+.idea/
+__pycache__/
+data/
+sim_flying_room_stereo/
+tempDir/
+tmp/
+
+
