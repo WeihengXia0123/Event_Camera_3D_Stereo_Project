@@ -1,5 +1,6 @@
 import numpy as np
 import bisect
+from array2gif import write_gif
 
 
 class Util(object):
@@ -16,7 +17,7 @@ class Util(object):
             weight = 1 / (a * np.pow(dt, 2) + 0.1)
             return weight
         elif functionType == 3:
-            mht = 10  # maximal considered hsitory events TODO
+            mht = 10  # maximal considered history events TODO
             b = 1
             weight = mht * np.exp(-dt / b)
             return weight
