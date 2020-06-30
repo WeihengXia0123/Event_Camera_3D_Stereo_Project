@@ -10,7 +10,7 @@ filename_sub_right = 'sim_flying_room_stereo/cam1/events.txt'
 
 max_y = 180
 max_x = 240
-dis = 50
+dis = 10
 buffer_right = np.empty((180, 0)).tolist()
 maximumTimeDifference = 0.0001
 wmi = np.zeros((max_y, max_x, dis))
@@ -35,13 +35,13 @@ def searchEvent(data):
         # Step1: check if we#re looking at future events
         if timestamp < buffer_right[y_value][x][0]:
             break
-        # Step2: check if time diff is within time_max if not, start next search at this point to reduce runtime
+        # Step2: check if time diff is within time_max, if not, start next search at this point to reduce runtime
         elif timestamp - buffer_right[y_value][x][0] > maximumTimeDifference:
             search_min[y_value] = int(x)
-        ## Step3: check disparity
+        # Step3: check disparity
         elif abs(data[1] - buffer_right[y_value][x][1]) > (dis - 1):
             continue
-        #check if polarity is the same
+        # Step4: check if polarity is the same
         elif pol == buffer_right[y_value][x][3]:
             foundEvents.append(buffer_right[y_value][x])
 
@@ -50,7 +50,7 @@ def searchEvent(data):
 def calculateMatchingCosts(timestampleft, timestampright, weightingfunction = 1):
     timediff = timestampleft-timestampright
     if weightingfunction == 1: #inverse linear
-        print(0.001-timediff)
+        #print(0.001-timediff)
         return 0.001-timediff
     elif weightingfunction == 2: #inverse quadratic
         a = 1
@@ -65,9 +65,9 @@ def calculateMatchingCosts(timestampleft, timestampright, weightingfunction = 1)
         return timediff
 
 #load Events
-events_left = np.genfromtxt(fname=filename_sub_left, delimiter=' ', dtype=np.float, skip_header=0)[:]
-events_right =np.genfromtxt(fname=filename_sub_right, delimiter=' ', dtype=np.float, skip_header=0)[:]
-
+events_left  = np.genfromtxt(fname=filename_sub_left, delimiter=' ', dtype=np.float, skip_header=0)[:]
+events_right = np.genfromtxt(fname=filename_sub_right, delimiter=' ', dtype=np.float, skip_header=0)[:]
+print("length of left cam data: ", len(events_left))
 
 #write Events into Buffer
 n = events_right.shape[0]
@@ -88,12 +88,12 @@ for i in range(n):
         wmi[int(events_left[i][2]),int(events_left[i][1]),disparity-1] = costs
 
         #output of disparity map every 1000 events, refresh weighs
-        if i % 100 == 0:
-            wmi = wmi - 0.0001
+        if i % 1000 == 0:
+            wmi = wmi - 0.00015
             wmi = wmi.clip(min=0)
-        if i % 10000 == 0:
+        if i % 2000 == 0:
             ##average filtering on each disparity
-            kernel = np.ones((3, 3), np.float32) / 9
+            kernel = np.ones((2, 2), np.float32) / 4
             wmi_avg = np.zeros_like(wmi)
             for disp in range(10):
                wmi_avg[:, :, disp] = cv2.filter2D(wmi[:, :, disp], -1, kernel)
@@ -101,15 +101,12 @@ for i in range(n):
             disp = np.argmax(wmi_avg[:, :, :10], 2)
             plt.imshow(disp, cmap="gray")
             name = str(i) + "test.png"
-            plt.savefig(name)
-            #plt.show()
+            # plt.savefig(name)
+            plt.show()
 
 
-#last wmi aggregation
-kernel = np.ones((3,3),np.float32)/25
-
-# Step3: apply an average filter on WMI on x-y plane
-# kernel = np.ones((5,5),np.float32)/25
+# Average filter on WMI on x-y plane
+# kernel = np.ones((2,2),np.float32)/4
 # wmi_avg = np.zeros_like(wmi)
 # for d in range(dis):
 #     wmi_avg[:, :, d] = cv2.filter2D(wmi[:, :, d], -1, kernel)
