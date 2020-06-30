@@ -8,8 +8,8 @@ from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 
 
 # %% Read a file of events and write another file with a subset of them
-camera_left = 'data/cam0/events.txt'
-camera_right = 'data/cam1/events.txt'
+camera_left = 'data/berlinale/cam0/events.txt'#'data/drone/cam0/events.txt'
+camera_right = 'data/berlinale/cam1/events.txt'# 'data/drone/cam1/events.txt'
 
 height = 180
 width = 240
@@ -30,7 +30,8 @@ def extract_data(filename):
         y.append(int(words[2]))
         pol.append(int(words[3]))
     infile.close()
-    return timestamp,x,y,pol
+    #return timestamp,x,y,pol
+    return timestamp[500000:],x[500000:],y[500000:],pol[500000:]
     
 t0, x0, y0, p0 = extract_data(camera_left)
 t1, x1, y1, p1 = extract_data(camera_right)
@@ -169,32 +170,36 @@ for i in range(len(t0)):
     
     if i%5000 == 0:
         # Step1: weight decay
-        wmi = wmi*0.7
+        wmi = wmi-0.001 #wmi*0.7
         
         # Step2: clean weights under threshold
-        #wmi[wmi<threhold] = 0
+        wmi[wmi<0] = 0
             
         # Step3: apply an average filter on WMI on x-y plane
-        kernel = np.ones((5,5),np.float32)/25
+        kernel = np.ones((2,2),np.float32)/4
         for disp_value in range(disp_max):
             wmi[:,:,disp_value] = cv2.filter2D(wmi[:,:,disp_value],-1,kernel)
-            # wmi_avg[disp_] = cv2.filter2D(wmi[:,:,disp_],-1,kernel)
         
         # Step4: find maxima
-        disp_map = np.amax(wmi, axis=2)
-        plt.imshow(disp_map, cmap = "gist_gray")
+        disp_map = np.argmax(wmi, axis=2) #np.amax(wmi, axis=2)
+        plt.imshow(disp_map)
         plt.show()
         
 # insertWMI(t0[7000], x0[7000], y0[7000],p0[7000])
-# disp_map = np.amax(wmi, axis=2)
+# disp_map = np.argmax(wmi, axis=2)
 # plt.imshow(disp_map, cmap = "gist_gray")
 # plt.show()
+# print("disp_map: ", np.amax(disp_map))
 
-disp = np.argmax(wmi,2)
+# kernel = np.ones((5,5),np.float32)/25
+# for disp_value in range(disp_max):
+#     wmi[:,:,disp_value] = cv2.filter2D(wmi[:,:,disp_value],-1,kernel)
+
+disp_map = np.argmax(wmi, axis=2)
 print(np.amax(wmi))
 print(np.amin(wmi))
-print(disp.shape)
-print(disp)
+print(disp_map.shape)
+print(disp_map)
     
 # %%
 # a = np.zeros((2,3,4))
