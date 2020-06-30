@@ -33,16 +33,14 @@ class CameraBuffer(object):
         p = int(data[3])
         res = []
         maxdT = self.maxTimeSlot * self.timeResolution
-        for i in range(0, int(len(self.rightBuffer[y]))):
-            # Check if compare to future events
-            #print("timestamp right: {}".format(self.rightBuffer[y][i][0]))
-            if currentTime > self.rightBuffer[y][i][0]: ##not working because of some unsorted events despite sorting
+        for i in range(int(self.rightBufferSearchBegin[y]), int(len(self.rightBuffer[y]))):
+            if currentTime > self.rightBuffer[y][i][0]:
+                self.rightBufferSearchBegin[y] = int(i) #to reduce computation , set search start
                 continue
             # Update search begin TODO delete unused events
             elif self.rightBuffer[y][i][0]- currentTime > maxdT:
                 #self.rightBuffer[y].remove([i])
-                #self.rightBufferSearchBegin[y] = int(i)
-                continue
+                break
             # Check disparity
             elif abs(data[1] - self.rightBuffer[y][i][1]) > (self.maxDisp - 1):
                 continue

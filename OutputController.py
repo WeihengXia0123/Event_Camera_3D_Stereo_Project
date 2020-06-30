@@ -51,6 +51,6 @@ class OutputController(object):
                 plt.imshow(res, cmap="gray")
                 title = str(i) + ".png"
                 plt.savefig(title)
-                #plt.show()
+                plt.show()
 
 
