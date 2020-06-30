@@ -6,12 +6,12 @@ from OutputController import OutputController
 
 #filename_sub_left = 'data/berlinale/cam0/events.txt'
 #filename_sub_right = 'data/berlinale/cam1/events.txt'
-filename_sub_left = 'sim_flying_room_stereo\cam0\events.txt'
-filename_sub_right = 'sim_flying_room_stereo\cam1\events.txt'
+filename_sub_left = 'sim_flying_room_stereo/cam0/events.txt'
+filename_sub_right = 'sim_flying_room_stereo/cam1/events.txt'
 max_y = 180
 max_x = 240
 max_disparity = 50
-time_resolution = 0.000000001
+time_resolution = 0.0001
 maximum_timeslot = 1000
 a = CameraBuffer(max_x,max_y,filename_sub_left,filename_sub_right,max_disparity, time_resolution)
 a.prepareData()

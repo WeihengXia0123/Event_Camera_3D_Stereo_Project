@@ -17,7 +17,7 @@ class OutputController(object):
         self.maxTimeSlot = maxTimeSlot
         self.WMI = np.zeros((maxY, maxX, max_disp))
         self.output = cv2.VideoWriter("output.avi",  cv2.VideoWriter_fourcc(*'DIVX'), 5, (maxX, maxY))
-
+        self.image_idx=0
 
     def refreshWMI(self, referenceEvent, candidateEvent: list):
         #print("event from the left Buffer: {}".format(referenceEvent))
@@ -34,10 +34,11 @@ class OutputController(object):
             self.WMI[:, :, i] = signal.convolve2d(self.WMI[:, :, i], filter2d, boundary='symm', mode='same', fillvalue=0)
 
     def evaluateAll(self):
+        
         print("Process Start:")
         print(self.cameraBuffer.leftBuffer.shape[0])
         print(str(self.cameraBuffer.leftBuffer.shape[0]) + "event(s) in total.")
-        filterAvg = np.ones((3, 3), dtype=np.float) / 9
+        filterAvg = np.ones((2, 2), dtype=np.float) / 4
         #filtergauss = cv2.getGaussianKernel(3, 1.5)*cv2.getGaussianKernel(3, 1.5).transpose()
         print("filterfiltergauss: {}".format(filterAvg))
         for i in range(self.cameraBuffer.leftBuffer.shape[0]):
@@ -51,7 +52,8 @@ class OutputController(object):
                 res = np.argmax(self.WMI[:,:,:], 2)
                 print(np.amax(self.WMI))
                 plt.imshow(res, cmap="binary")
-                title = str(i) + ".png"
+                title = "result/"+str(format(self.image_idx, '03d')) + ".png" #str(i) + ".png"
+                self.image_idx += 1
                 plt.savefig(title)
                 plt.show()
 

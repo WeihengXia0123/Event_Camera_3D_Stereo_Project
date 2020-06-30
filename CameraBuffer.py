@@ -7,7 +7,7 @@ class CameraBuffer(object):
         self.pathLeft = pathToLeft
         self.pathRight = pathToRight
         self.timeResolution = timeRes
-        self.maxTimeSlot = 1000
+        self.maxTimeSlot = 1
         self.maxdT = self.maxTimeSlot * self.timeResolution
         self.maxDisp = max_disp
         # leftBuffer n x 4 ndarray

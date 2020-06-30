@@ -11,4 +11,4 @@ tempDir/
 tmp/
 dataBerlinale/
 /*.avi
-
+/result
