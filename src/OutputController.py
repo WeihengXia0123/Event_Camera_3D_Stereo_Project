@@ -14,7 +14,7 @@ class OutputController(object):
         self.cameraBuffer = cameraBuffer
         self.maxTimeSlot = maxTimeSlot
         self.WMI = np.zeros((maxY, maxX, max_disp))
-        self.output = cv2.VideoWriter("output.avi",  cv2.VideoWriter_fourcc(*'DIVX'), 5, (maxX, maxY))
+        # self.output = cv2.VideoWriter("output.avi",  cv2.VideoWriter_fourcc(*'DIVX'), 5, (maxX, maxY))
         self.image_idx=0
         self.visual = np.zeros((self.maxY,self.maxX))
 
@@ -67,13 +67,15 @@ class OutputController(object):
                 #self.applyFilter(filterAvg)
                 res = np.argmax(self.WMI[:,:,:], 2)
                 print(np.amax(self.WMI))
-                plt.imshow(res, cmap="binary")
+                
+                plt.imshow(res, cmap="brg")
                 title = "result_simple/"+format(self.image_idx, '03d') + ".png" #str(i) + ".png"
                 self.image_idx += 1
+                plt.clim(0, 50)
                 plt.colorbar()
                 plt.savefig(title,dpi=300)
-                plt.close()
-                #plt.show()
+                # plt.close()
+                plt.show()
 
             if i% 100== 0:
                 self.WMI = np.subtract(self.WMI, 9)
@@ -84,4 +86,4 @@ class OutputController(object):
             #    self.output.write(res)
 
 
-        self.output.release()
+        # self.output.release()

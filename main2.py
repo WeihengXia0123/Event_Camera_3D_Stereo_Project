@@ -8,7 +8,7 @@ filename_sub_right = 'berlinale/cam1/events.txt'
 # filename_sub_right = 'sim_flying_room_stereo/cam1/events.txt'
 max_y = 180
 max_x = 240
-max_disparity = 22
+max_disparity = 50
 time_resolution = 0.0001
 maximum_timeslot = 1000
 if not os.path.exists("result_simple/"):
