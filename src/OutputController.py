@@ -33,7 +33,7 @@ class OutputController(object):
             if(tmp_cost < cost):
                 tmp_cost = cost
                 tmp_e = e
-        if True and len(candidateEvent) != 0:
+        if False and len(candidateEvent) != 0:
             self.visualizeMatching(referenceEvent,tmp_e)
 
     def applyFilter(self, filter2d):
@@ -72,6 +72,7 @@ class OutputController(object):
                 self.image_idx += 1
                 plt.colorbar()
                 plt.savefig(title,dpi=300)
+                plt.close()
                 #plt.show()
 
             if i% 100== 0:
