@@ -1,8 +1,5 @@
-import cv2
-import numpy as np
-from matplotlib import pyplot as plt
-from CameraBuffer import CameraBuffer
-from OutputController import OutputController
+from src.CameraBuffer import CameraBuffer
+from src.OutputController import OutputController
 import os
 
 filename_sub_left = 'berlinale/cam0/events.txt'
