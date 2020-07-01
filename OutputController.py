@@ -85,4 +85,4 @@ class OutputController(object):
             #    self.output.write(res)
 
 
-        self.output.release()
+        # self.output.release()
