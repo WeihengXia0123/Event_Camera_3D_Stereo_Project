@@ -44,10 +44,10 @@ class CameraBuffer(object):
                 res.append(self.rightBuffer[y][i])
         return res
 
-    # Use Hashtable to store the events
+    # Use Hashmap to store the events
     def prepareData_dict(self):
-        self.leftBuffer = np.genfromtxt(fname=self.pathLeft, delimiter=' ', dtype=np.float, skip_header=0)[:]
-        events_right = np.genfromtxt(fname=self.pathRight, delimiter=' ', dtype=np.float, skip_header=0)[:]
+        self.leftBuffer = Util.loadEvents(self.pathLeft)
+        events_right = Util.loadEvents(self.pathRight)
         self.rightBuffer = [{}] * self.maxY
         for e in events_right:
             x = int(e[1])
@@ -57,7 +57,6 @@ class CameraBuffer(object):
             else:
                 self.rightBuffer[y][x] = []
                 self.rightBuffer[y][x].append([e[0], int(e[3])])
-
 
     def searchCorrespondingEventsOnRight_dict(self, data: np.ndarray) -> list:
         currentTime = data[0]
