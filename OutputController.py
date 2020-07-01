@@ -16,7 +16,7 @@ class OutputController(object):
         self.cameraBuffer = cameraBuffer
         self.maxTimeSlot = maxTimeSlot
         self.WMI = np.zeros((maxY, maxX, max_disp))
-        self.output = cv2.VideoWriter("output.avi",  cv2.VideoWriter_fourcc(*'DIVX'), 5, (maxX, maxY))
+        # self.output = cv2.VideoWriter("output.avi",  cv2.VideoWriter_fourcc(*'DIVX'), 5, (maxX, maxY))
         self.image_idx=0
         self.visual = np.zeros((self.maxY,self.maxX))
 
@@ -35,8 +35,8 @@ class OutputController(object):
             if(tmp_cost < cost):
                 tmp_cost = cost
                 tmp_e = e
-        if True and len(candidateEvent) != 0:
-            self.visualizeMatching(referenceEvent,tmp_e)
+        # if True and len(candidateEvent) != 0:
+            # self.visualizeMatching(referenceEvent,tmp_e)
 
     def applyFilter(self, filter2d):
         for i in range(self.max_disp):
@@ -74,7 +74,7 @@ class OutputController(object):
                 self.image_idx += 1
                 plt.colorbar()
                 plt.savefig(title,dpi=300)
-                #plt.show()
+                plt.show()
 
             if i% 100== 0:
                 self.WMI = np.subtract(self.WMI, 9)
