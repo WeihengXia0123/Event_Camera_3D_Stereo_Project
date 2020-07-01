@@ -12,3 +12,4 @@ tmp/
 dataBerlinale/
 /*.avi
 /result
+/result_simple
