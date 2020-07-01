@@ -70,8 +70,9 @@ class OutputController(object):
                 res = np.argmax(self.WMI[:,:,:], 2)
                 print(np.amax(self.WMI))
                 plt.imshow(res, cmap="binary")
-                title = "result/"+format(self.image_idx, '03d') + ".png" #str(i) + ".png"
+                title = "result_simple/"+format(self.image_idx, '03d') + ".png" #str(i) + ".png"
                 self.image_idx += 1
+                plt.colorbar()
                 plt.savefig(title,dpi=300)
                 #plt.show()
 
