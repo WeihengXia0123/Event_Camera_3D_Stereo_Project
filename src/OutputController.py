@@ -23,6 +23,9 @@ class OutputController(object):
         if True and len(candidateEvent) != 0 :
             tmp_e = candidateEvent[0]
             tmp_cost = 0
+
+        # set dispList of referenceEvent to zero
+        self.WMI[int(referenceEvent[2]), int(referenceEvent[1])] = np.zeros(self.max_disp)
         for e in candidateEvent:
             dt = abs(referenceEvent[0] - e[0]) / self.timeResolution
             cost = Util.calculateMatchingCosts(dt, self.maxTimeSlot)
