@@ -24,8 +24,6 @@ class OutputController(object):
             tmp_e = candidateEvent[0]
             tmp_cost = 0
 
-        # set dispList of referenceEvent to zero
-        self.WMI[int(referenceEvent[2]), int(referenceEvent[1])] = np.zeros(self.max_disp)
         for e in candidateEvent:
             dt = abs(referenceEvent[0] - e[0]) / self.timeResolution
             cost = Util.calculateMatchingCosts(dt, self.maxTimeSlot)
@@ -69,14 +67,18 @@ class OutputController(object):
                 #print("i: {}".format(i))
                 #self.applyFilter(filterAvg)
                 res = np.argmax(self.WMI[:,:,:], 2)
-                print(np.amax(self.WMI))
+                print(res)
                 
-                plt.imshow(res, cmap="brg")
+                # Calculate Depth Map
+                DepthMap = 3*20/res
+                print("depth map: ", DepthMap)
+                
+                plt.imshow(DepthMap, cmap="brg") #res
                 title = "result_simple/"+format(self.image_idx, '03d') + ".png" #str(i) + ".png"
                 self.image_idx += 1
-                plt.clim(0, 50)
+                plt.clim(0, 10)
                 plt.colorbar()
-                plt.savefig(title,dpi=300)
+                plt.savefig(title)
                 # plt.close()
                 plt.show()
 
