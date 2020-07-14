@@ -57,28 +57,27 @@ class OutputController(object):
         print(str(self.cameraBuffer.leftBuffer.shape[0]) + "event(s) in total.")
         filterAvg = np.ones((2, 2), dtype=np.float) / 4
         #filtergauss = cv2.getGaussianKernel(3, 1.5)*cv2.getGaussianKernel(3, 1.5).transpose()
-        print("filterfiltergauss: {}".format(filterAvg))
+        print("filter kernel: {}".format(filterAvg))
         for i in range(self.cameraBuffer.leftBuffer.shape[0]):
-        #for i in range(1098723,1098724):
             candidateEvent = self.cameraBuffer.searchCorrespondingEventsOnRight(self.cameraBuffer.leftBuffer[i])
             self.refreshWMI(self.cameraBuffer.leftBuffer[i], candidateEvent)
 
             if i % 10000 == 0:
                 #print("i: {}".format(i))
-                #self.applyFilter(filterAvg)
+                self.applyFilter(filterAvg)
                 res = np.argmax(self.WMI[:,:,:], 2)
                 print(res)
                 
                 # Calculate Depth Map
-                DepthMap = 3*20/res
-                print("depth map: ", DepthMap)
+                # DepthMap = 3*20/res
+                # print("depth map: ", DepthMap)
                 
-                plt.imshow(DepthMap, cmap="brg") #res
-                title = "result_simple/"+format(self.image_idx, '03d') + ".png" #str(i) + ".png"
+                plt.imshow(res, cmap="binary") #res
+                title = "result_flying/"+format(self.image_idx, '03d') + ".png" #str(i) + ".png"
                 self.image_idx += 1
-                plt.clim(0, 10)
+                plt.clim(0, 20)
                 plt.colorbar()
-                plt.savefig(title)
+                plt.savefig(title, dpi=300)
                 # plt.close()
                 plt.show()
 
