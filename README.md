@@ -1,7 +1,7 @@
 # Stereo Vision based on Event Camera
 
 ## Introduction
-This is the code used to produce the results published in 
+This is the code used to produce the results published in <br/>
 Kogler, J., Sulzbachner, C., Humenberger, M., Eibensteiner, F.,
 Address-Event Based Stereo Vision with Bio-Inspired Silicon Retina Imagers,
 Advances in Theory and Applications of Stereo Vision (2011), pp. 165-188. 
