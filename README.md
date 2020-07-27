@@ -1,8 +1,10 @@
 # Stereo Vision based on Event Camera
 
 ## Motivation
-![Event based camera](https://www.researchgate.net/profile/Guillermo_Gallego/publication/320847681/figure/fig2/AS:613514209148984@1523284594697/An-event-camera-and-its-output.png)
-
+<img 
+src="https://www.researchgate.net/profile/Guillermo_Gallego/publication/320847681/figure/fig2/AS:613514209148984@1523284594697/An-event-camera-and-its-output.png" 
+alt="Event based camera" 
+width="50%"/> <br/>
 Event based cameras have been proven to have absolute advantages over traditional cameras in data processing.
 
 1. High temporal resolution
@@ -62,7 +64,11 @@ This problem has been improved in [subsequent papers](https://mediatum.ub.tum.de
 See template.py
 
 ## Result
-![example](results/result_flying/216.png)
+<img 
+src="results/result_flying/216.png" 
+alt="example" 
+width="50%"/> <br/>
+
 [![Everything Is AWESOME](http://i.imgur.com/Ot5DWAW.png)](https://youtu.be/StTqXEQ2l-Y?t=35s "Everything Is AWESOME")
 
 ## Reference
