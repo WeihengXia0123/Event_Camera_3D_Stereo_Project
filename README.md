@@ -13,10 +13,18 @@ The project implements the following functions: <br/>
 
 - In the [CameraBuffer](src/CameraBuffer.py) class, the event procedures are being simulated. <br/>
 This class includes two methods, one is to prepare data, it puts the collected data into memory.
-The other is to find the corresponding event. Both of these two methods have implementations corresponding to two different data structures, one is ordinary Array, the other is a dictionary, also called the hashmap.
+The other is to find the corresponding event. Both of these two methods have implementations corresponding to two different data structures, 
+one is ordinary Array, the other is a dictionary, also called the hashmap.
 
 - In the [Util](src/Util.py) class, loading method and matching costs functions are been implemented. <br/>
-The loading method is mainly used to adapt to different formats of data. Three common linear and nonlinear methods are provided in the cost calculation method.
+The loading method is mainly used to adapt to different formats of data. 
+Three common linear and nonlinear methods are provided in the cost calculation method.
+
+- The [OutputController](src/OutputController.py) class is the most important class in the entire project, 
+which implements the very important WMI data structure in the event data processing process. <br/>
+In addition, some related methods such as refreshing WMI, applying filters, evaluating cost values, etc., are all implemented in this class.
+
+- The data we used were provided by Professor Marianne Maertens and Professor Guillermo Gallego Bonet. http://www.psyco.tu-berlin.de/
 
 ## Usage
 See template.py
