@@ -1,6 +1,17 @@
 # Stereo Vision based on Event Camera
 
 ## Motivation
+![Event based camera](https://www.researchgate.net/profile/Guillermo_Gallego/publication/320847681/figure/fig2/AS:613514209148984@1523284594697/An-event-camera-and-its-output.png)
+
+Event based cameras have been proven to have absolute advantages over traditional cameras in data processing.
+
+1. High temporal resolution
+2. On-sensor pre-processing
+3. Handling of diffcult lighting situations
+
+The only shortcoming is the lack of supported algorithms, but the direct way to solve this shortcoming is to implement applications on this technology. 
+Stereo vision is often used to judge the distance between objects, and the advantages of event-based cameras can well cope with various scene needs. 
+Therefore, the transition from stereo vision based on traditional cameras to event-based cameras is very natural.
 
 ## Introduction
 This project is used to reproduce the results published in <br/>
@@ -51,6 +62,7 @@ This problem has been improved in [subsequent papers](https://mediatum.ub.tum.de
 See template.py
 
 ## Result
+![example](results/result_flying/216.png)
 
 ## Reference
 [Kogler, J., Sulzbachner, C., Humenberger, M., Eibensteiner, F.,
