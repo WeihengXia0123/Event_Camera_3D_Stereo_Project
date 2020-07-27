@@ -1,5 +1,7 @@
 # Stereo Vision based on Event Camera
 
+## Motivation
+
 ## Introduction
 This project is used to reproduce the results published in <br/>
 [Kogler, J., Sulzbachner, C., Humenberger, M., Eibensteiner, F.,
@@ -26,6 +28,8 @@ In addition, some related methods such as refreshing WMI, applying filters, eval
 
 - The data we used were provided by Professor Marianne Maertens and Professor Guillermo Gallego Bonet. 
 Please refer to this [link](http://www.psyco.tu-berlin.de/) for details and contact information. 
+
+## Problems found during the implementation
 
 ## Usage
 See template.py
