@@ -31,14 +31,33 @@ Please refer to this [link](http://www.psyco.tu-berlin.de/) for details and cont
 
 ## Problems found during the implementation
 
+- Due to the limited time, we only implemented the offline algorithm. 
+The efficiency of the algorithm for online calculations has yet to be considered. 
+The main reason for the inefficiency of the calculation in the offline version is that the event search interval is too large. 
+Since we have not limited the size of the cache, simulation During the process, all events are loaded and are taken into consideration. 
+This situation does not happen in practice because the cache size is limited.
+
+- The choice of filter. 
+At the beginning of the algorithm, because the available data is very small, 
+if the filter is applied at this time, it will cause wrong results. 
+The solution is that the filter should not be applied to the pixels where no event has occurred.
+
+- The formulation of maximum disparity parameters. During the experiment, 
+we found that setting the maximum disparity value incorrectly will lead to very wrong event matching results, 
+because our algorithm only penalizes the time difference, but lacks the penalty for the relative distance of the event.
+This problem has been improved in [subsequent papers](https://mediatum.ub.tum.de/doc/1254531/131347.pdf).
+
 ## Usage
 See template.py
 
 ## Result
 
 ## Reference
-This project is used to reproduce the results published in <br/>
 [Kogler, J., Sulzbachner, C., Humenberger, M., Eibensteiner, F.,
 Address-Event Based Stereo Vision with Bio-Inspired Silicon Retina Imagers,
 Advances in Theory and Applications of Stereo Vision (2011), pp. 165-188.] 
 (https://u.pcloud.link/publink/show?code=XZ0QktkZJeG08fzrsT0y587cBu2vpy3EEbk7)
+
+[Firouzi, M. and Conradt, J.,
+Asynchronous Event-based Cooperative Stereo Matching Using Neuromorphic Silicon Retinas,
+Neural Processing Letters, 43(2):311-326, Apr. 2016.](https://mediatum.ub.tum.de/doc/1254531/131347.pdf)
