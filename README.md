@@ -11,7 +11,7 @@ We omit the calibration process of the left and right cameras, because the image
 
 The project implements the following functions: <br/>
 
-- In the [CameraBuffer](CameraBuffer) class, the event procedures are being simulated.
+- In the [CameraBuffer](src/CameraBuffer.py) class, the event procedures are being simulated.
 
 ## Usage
 See template.py
