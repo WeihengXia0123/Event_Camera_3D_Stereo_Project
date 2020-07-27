@@ -11,7 +11,12 @@ We omit the calibration process of the left and right cameras, because the image
 
 The project implements the following functions: <br/>
 
-- In the [CameraBuffer](src/CameraBuffer.py) class, the event procedures are being simulated.
+- In the [CameraBuffer](src/CameraBuffer.py) class, the event procedures are being simulated. <br/>
+This class includes two methods, one is to prepare data, it puts the collected data into memory.
+The other is to find the corresponding event. Both of these two methods have implementations corresponding to two different data structures, one is ordinary Array, the other is a dictionary, also called the hashmap.
+
+- In the [Util](src/Util.py) class, loading method and matching costs functions are been implemented. <br/>
+The loading method is mainly used to adapt to different formats of data. Three common linear and nonlinear methods are provided in the cost calculation method.
 
 ## Usage
 See template.py
