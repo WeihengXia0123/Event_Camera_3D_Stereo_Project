@@ -9,19 +9,19 @@ width="50%"/></p>
  <br/>
 Event based cameras have been proved to have relative advantages over traditional cameras in the following aspects:
 
-1. High temporal resolution
+1.   High temporal resolution
 2. On-sensor pre-processing
 3. High Dynamic Range: capable of handling extreme light or dark situations
 
 The only shortcoming is the lack of supported algorithms, and the direct way to solve this shortcoming is to implement applications on this technology. 
 Stereo vision is often used to judge the distance between objects and the camera. And the advantages of our event-based cameras can well cope with various scene needs. Therefore, the transition from frame-based stereo vision algorithm to event-based stereo algorithm is our main task in this project.
 
-## Introduction
+## Code Structure
 This project is used to reproduce the results published in <br/>
 [Kogler et al, Address-Event Based Stereo Vision with Bio-Inspired Silicon Retina Imagers,
 Advances in Theory and Applications of Stereo Vision (2011), pp. 165-188.](https://u.pcloud.link/publink/show?code=XZ0QktkZJeG08fzrsT0y587cBu2vpy3EEbk7)
 
-We omit the calibration process of the left and right cameras, because the images we use have already been calibrated.
+We skipped the calibration process, since the images we used were already been calibrated.
 
 The project implements the following functions: <br/>
 
@@ -73,9 +73,10 @@ alt="example"
 width="50%"/>
 </p>
 
+
  <br/>
 
-[![Everything Is AWESOME](http://i.imgur.com/Ot5DWAW.png)](https://youtu.be/StTqXEQ2l-Y?t=35s "Everything Is AWESOME")
+[![Everything Is AWESOME](results/result_flying/166.png)](https://www.youtube.com/watch?v=7JHg-Kj7ppA "simulation flying grayscale")
 
 ## Reference
 [Kogler et al., Address-Event Based Stereo Vision with Bio-Inspired Silicon Retina Imagers, Advances in Theory and Applications of Stereo Vision (2011), pp. 165-188.](https://u.pcloud.link/publink/show?code=XZ0QktkZJeG08fzrsT0y587cBu2vpy3EEbk7)
