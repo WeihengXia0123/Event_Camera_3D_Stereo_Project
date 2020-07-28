@@ -66,13 +66,11 @@ See [template.py](template.py)
 The result of our algorithm is a disparity map, which is shown below. The maximum disparity in the example is 20. 
 The detailed results are in the directory "result".
 
-<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/39255/cat.gif" class="example" />
-
-[![Berlinale](result_simple/003.png)](https://www.youtube.com/watch?v=_WhTQ-fvPP0 "Berlinale")
+<img src=result_simple/output.gif class="Berlinale" />
 
 <center>Video 1: Berlinale simple dataset</center>
 
-[![Sim flying grayscale](results/result_flying/166.png)](https://www.youtube.com/watch?v=7JHg-Kj7ppA "simulation flying grayscale")
+<img src=results/result_flying/sim.gif class="Sim flying grayscale" />
 
 <center>Video 2: Sim flying dataset</center>
 
