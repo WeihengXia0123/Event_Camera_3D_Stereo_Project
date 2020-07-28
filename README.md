@@ -74,6 +74,11 @@ width="50%"/>
 [![Everything Is AWESOME](results/result_flying/166.png)](https://www.youtube.com/watch?v=7JHg-Kj7ppA "simulation flying grayscale")
 
 ## Reference
-[Kogler et al., Address-Event Based Stereo Vision with Bio-Inspired Silicon Retina Imagers, Advances in Theory and Applications of Stereo Vision (2011), pp. 165-188.](https://u.pcloud.link/publink/show?code=XZ0QktkZJeG08fzrsT0y587cBu2vpy3EEbk7)
+[Kogler et al., Address-Event Based Stereo Vision with Bio-Inspired Silicon Retina Imagers, Advances in Theory and Applications of Stereo Vision (2011), pp. 165-188.]
+(https://u.pcloud.link/publink/show?code=XZ0QktkZJeG08fzrsT0y587cBu2vpy3EEbk7)
 
-[Firouzi, M. & Conradt, J., Asynchronous Event-based Cooperative Stereo Matching Using Neuromorphic Silicon Retinas, Neural Processing Letters, 43(2):311-326, Apr. 2016.](https://mediatum.ub.tum.de/doc/1254531/131347.pdf)
+[Firouzi, M. & Conradt, J., Asynchronous Event-based Cooperative Stereo Matching Using Neuromorphic Silicon Retinas, Neural Processing Letters, 43(2):311-326, Apr. 2016.]
+(https://mediatum.ub.tum.de/doc/1254531/131347.pdf)
+
+[Gallego, Guillermo & Lund, Jon & Mueggler, Elias & Rebecq, Henri & Delbruck, Tobi & Scaramuzza, Davide. (2017). Event-based, 6-DOF Camera Tracking from Photometric Depth Maps. IEEE Transactions on Pattern Analysis and Machine Intelligence. PP. 1-1. 10.1109/TPAMI.2017.2769655.] 
+(https://www.researchgate.net/figure/An-event-camera-and-its-output_fig2_320847681)
