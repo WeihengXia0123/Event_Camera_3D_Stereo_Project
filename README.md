@@ -59,21 +59,17 @@ because our algorithm only penalizes the time difference, but lacks the penalty 
 This problem has been improved in [subsequent papers](https://mediatum.ub.tum.de/doc/1254531/131347.pdf).
 
 ## Usage
-See template.py
+See [template.py](template.py)
 
 ## Result
 The result of our algorithm is a disparity map, which is shown below. The maximum disparity in the example is 20. 
 The detailed results are in the directory "result".
 
-<p align="center">
-    <img 
+<img 
 src="results/result_flying/216.png" 
 alt="example" 
 width="50%"/>
-</p>
-
-
- <br/>
+<br/>
 
 [![Everything Is AWESOME](results/result_flying/166.png)](https://www.youtube.com/watch?v=7JHg-Kj7ppA "simulation flying grayscale")
 
