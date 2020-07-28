@@ -7,22 +7,19 @@ alt="Event based camera"
 width="50%"/></p>
 
  <br/>
-Event based cameras have been proven to have absolute advantages over traditional cameras in data processing.
+Event based cameras have been proved to have relative advantages over traditional cameras in the following aspects:
 
 1. High temporal resolution
 2. On-sensor pre-processing
-3. Handling of diffcult lighting situations
+3. High Dynamic Range: capable of handling extreme light or dark situations
 
-The only shortcoming is the lack of supported algorithms, but the direct way to solve this shortcoming is to implement applications on this technology. 
-Stereo vision is often used to judge the distance between objects, and the advantages of event-based cameras can well cope with various scene needs. 
-Therefore, the transition from stereo vision based on traditional cameras to event-based cameras is very natural.
+The only shortcoming is the lack of supported algorithms, and the direct way to solve this shortcoming is to implement applications on this technology. 
+Stereo vision is often used to judge the distance between objects and the camera. And the advantages of our event-based cameras can well cope with various scene needs. Therefore, the transition from frame-based stereo vision algorithm to event-based stereo algorithm is our main task in this project.
 
 ## Introduction
 This project is used to reproduce the results published in <br/>
-[Kogler, J., Sulzbachner, C., Humenberger, M., Eibensteiner, F.,
-Address-Event Based Stereo Vision with Bio-Inspired Silicon Retina Imagers,
-Advances in Theory and Applications of Stereo Vision (2011), pp. 165-188.] 
-(https://u.pcloud.link/publink/show?code=XZ0QktkZJeG08fzrsT0y587cBu2vpy3EEbk7)
+[Kogler et al, Address-Event Based Stereo Vision with Bio-Inspired Silicon Retina Imagers,
+Advances in Theory and Applications of Stereo Vision (2011), pp. 165-188.](https://u.pcloud.link/publink/show?code=XZ0QktkZJeG08fzrsT0y587cBu2vpy3EEbk7)
 
 We omit the calibration process of the left and right cameras, because the images we use have already been calibrated.
 
@@ -68,19 +65,19 @@ See template.py
 ## Result
 The result of our algorithm is a disparity map, which is shown below. The maximum disparity in the example is 20. 
 The detailed results are in the directory "result".
-<img 
+
+<p align="center">
+    <img 
 src="results/result_flying/216.png" 
 alt="example" 
-width="50%"/> <br/>
+width="50%"/>
+</p>
+
+ <br/>
 
 [![Everything Is AWESOME](http://i.imgur.com/Ot5DWAW.png)](https://youtu.be/StTqXEQ2l-Y?t=35s "Everything Is AWESOME")
 
 ## Reference
-[Kogler, J., Sulzbachner, C., Humenberger, M., Eibensteiner, F.,
-Address-Event Based Stereo Vision with Bio-Inspired Silicon Retina Imagers,
-Advances in Theory and Applications of Stereo Vision (2011), pp. 165-188.] 
-(https://u.pcloud.link/publink/show?code=XZ0QktkZJeG08fzrsT0y587cBu2vpy3EEbk7)
+[Kogler et al., Address-Event Based Stereo Vision with Bio-Inspired Silicon Retina Imagers, Advances in Theory and Applications of Stereo Vision (2011), pp. 165-188.](https://u.pcloud.link/publink/show?code=XZ0QktkZJeG08fzrsT0y587cBu2vpy3EEbk7)
 
-[Firouzi, M. and Conradt, J.,
-Asynchronous Event-based Cooperative Stereo Matching Using Neuromorphic Silicon Retinas,
-Neural Processing Letters, 43(2):311-326, Apr. 2016.](https://mediatum.ub.tum.de/doc/1254531/131347.pdf)
+[Firouzi, M. & Conradt, J., Asynchronous Event-based Cooperative Stereo Matching Using Neuromorphic Silicon Retinas, Neural Processing Letters, 43(2):311-326, Apr. 2016.](https://mediatum.ub.tum.de/doc/1254531/131347.pdf)
