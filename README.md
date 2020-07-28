@@ -32,16 +32,16 @@ and then calculations are performed for each individual event, and finally a dis
  
 * The data processing process is divided into four parts.
 
-** First of all, we use the event of the left camera as an opportunity to trigger the calculation. 
+    * First of all, we use the event of the left camera as an opportunity to trigger the calculation. 
 For each event of the left camera, we calculate the score of the event in a specific time range and space range in the cache of the right camera.
 The score will be stored in a three-dimensional array named WMI, where the third dimension represents different disparity values.
 
-** After adding the score to WMI, it will be subjected to a specific convolution operation to remove unnecessary noise. 
+    * After adding the score to WMI, it will be subjected to a specific convolution operation to remove unnecessary noise. 
 
-** Then for each pixel, find the disparity value with the highest score. 
+    * Then for each pixel, find the disparity value with the highest score. 
 It is worth noting that this is actually a convolution operation with a maximum filter applied to WMI.
 
-** Finally, WMI needs to perform a certain attenuation operation. After a period of time, the value in WMI needs to be reduced.
+    * Finally, WMI needs to perform a certain attenuation operation. After a period of time, the value in WMI needs to be reduced.
 
 * As the output, we only need to convert the result of the convolution with the maximum filter in the previous step into an image for output. 
 It should be noted that the result here is only the disparity value, if the actual distance is needed as the result, 
