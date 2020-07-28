@@ -65,11 +65,14 @@ See [template.py](template.py)
 ## Result
 The result of our algorithm is a disparity map, which is shown below. The maximum disparity in the example is 20. 
 The detailed results are in the directory "result".
-<br/>
 
-[![Berlinale](result_simple/003.png)](https://www.youtube.com/watch?v=_WhTQ-fvPP0 "Berlinale")
+<img src=result_simple/output.gif class="Berlinale" />
 
-[![Sim flying grayscale](results/result_flying/166.png)](https://www.youtube.com/watch?v=7JHg-Kj7ppA "simulation flying grayscale")
+<center>Video 1: Berlinale simple dataset</center>
+
+<img src=results/result_flying/sim.gif class="Sim flying grayscale" />
+
+<center>Video 2: Sim flying dataset</center>
 
 ## Reference
 [Kogler et al., Address-Event Based Stereo Vision with Bio-Inspired Silicon Retina Imagers, Advances in Theory and Applications of Stereo Vision (2011), pp. 165-188.]
