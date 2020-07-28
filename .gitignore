@@ -8,8 +8,4 @@ __pycache__/
 sim_flying_room_stereo/
 tempDir/
 tmp/
-dataBerlinale/
 /*.avi
-/result
-/result_simple
-/berlinale
