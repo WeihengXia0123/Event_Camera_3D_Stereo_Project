@@ -1,20 +1,20 @@
 # Stereo Vision based on Event Camera
 
 ## Motivation
-<p align="center"><img 
+<div align=center><img 
 src="https://www.researchgate.net/profile/Guillermo_Gallego/publication/320847681/figure/fig2/AS:613514209148984@1523284594697/An-event-camera-and-its-output.png" 
 alt="Event based camera" 
-width="50%"/></p>
+width="50%"/>
 
  <br/>
 Event based cameras have been proved to have relative advantages over traditional cameras in the following aspects:
 
-1.   High temporal resolution
+1. High temporal resolution
 2. On-sensor pre-processing
 3. High Dynamic Range: capable of handling extreme light or dark situations
 
 The only shortcoming is the lack of supported algorithms, and the direct way to solve this shortcoming is to implement applications on this technology. 
-Stereo vision is often used to judge the distance between objects and the camera. And the advantages of our event-based cameras can well cope with various scene needs. Therefore, the transition from frame-based stereo vision algorithm to event-based stereo algorithm is our main task in this project.
+Stereo vision is often used to judge the distance between objects and the camera. And the advantages of our event-based cameras can well cope with various scene needs. Therefore, the transition from frame-based stereo algorithm to event-based stereo algorithm is our main task in this project.
 
 ## Code Structure
 This project is used to reproduce the results published in <br/>
