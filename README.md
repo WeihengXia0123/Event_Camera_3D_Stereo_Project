@@ -64,6 +64,8 @@ This problem has been improved in [subsequent papers](https://mediatum.ub.tum.de
 See template.py
 
 ## Result
+The result of our algorithm is a disparity map, which is shown below. The maximum disparity in the example is 20. 
+The detailed results are in the directory "result".
 <img 
 src="results/result_flying/216.png" 
 alt="example" 
