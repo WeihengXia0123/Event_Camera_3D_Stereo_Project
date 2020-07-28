@@ -72,10 +72,11 @@ class OutputController(object):
                 # DepthMap = 3*20/res
                 # print("depth map: ", DepthMap)
                 
-                plt.imshow(res, cmap="brg") #res
-                title = "result_simple/"+format(self.image_idx, '03d') + ".png" #str(i) + ".png"
+                plt.imshow(res, cmap="binary") #res
+                save_path = "result_drone_2/"
+                title = save_path+format(self.image_idx, '03d') + ".png" #str(i) + ".png"
                 self.image_idx += 1
-                plt.clim(0, 40)
+                plt.clim(0, 30)
                 plt.colorbar()
                 plt.savefig(title)
                 # plt.close()

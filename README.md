@@ -29,19 +29,19 @@ and then calculations are performed for each individual event, and finally a dis
 
 * The data preprocessing part was omitted in our project, because the data we used has been well corrected.
  But for the first part, we still use two data structures to store events for later testing. 
- 
+
 * The data processing process is divided into four parts.
 
-    * First of all, we use the event of the left camera as an opportunity to trigger the calculation. 
+    * Step1: we use the event of the left camera as an opportunity to trigger the calculation. 
 For each event of the left camera, we calculate the score of the event in a specific time range and space range in the cache of the right camera.
 The score will be stored in a three-dimensional array named WMI, where the third dimension represents different disparity values.
 
-    * After adding the score to WMI, it will be subjected to a specific convolution operation to remove unnecessary noise. 
+    * Step2: After adding the score to WMI, it will be subjected to a specific convolution operation to remove unnecessary noise. 
 
-    * Then for each pixel, find the disparity value with the highest score. 
+    * Step3: Then for each pixel, find the disparity value with the highest score. 
 It is worth noting that this is actually a convolution operation with a maximum filter applied to WMI.
 
-    * Finally, WMI needs to perform a certain attenuation operation. After a period of time, the value in WMI needs to be reduced.
+    * Step4: Finally, WMI needs to perform a certain attenuation operation. After a period of time, the value in WMI needs to be reduced.
 
 * As the output, we only need to convert the result of the convolution with the maximum filter in the previous step into an image for output. 
 It should be noted that the result here is only the disparity value, if the actual distance is needed as the result, 
@@ -100,13 +100,18 @@ The detailed results are in the directory "result".
 
 <img src=result_simple/output.gif class="Berlinale" />
 
-<center>Video 1: Berlinale simple dataset</center>
+<center>GIF 1: Berlinale simple dataset</center>
 
-<img src=results/result_flying/sim.gif class="Sim flying grayscale" />
+<img src=result_drone_2/sim_drone_2.gif class="Sim flying grayscale" />
 
-<center>Video 2: Sim flying dataset</center>
+<center>GIF 2: Sim flying dataset (grayscale)</center>
+
+<img src=result_drone_1/sim_drone_1.gif class="Sim flying rgb" />
+
+<center>GIF 3: Sim flying dataset (rgb)</center>
 
 ## Reference
+
 [Kogler et al., Address-Event Based Stereo Vision with Bio-Inspired Silicon Retina Imagers, Advances in Theory and Applications of Stereo Vision (2011), pp. 165-188.]
 (https://u.pcloud.link/publink/show?code=XZ0QktkZJeG08fzrsT0y587cBu2vpy3EEbk7)
 
