@@ -6,7 +6,6 @@ src="https://www.researchgate.net/profile/Guillermo_Gallego/publication/32084768
 alt="Event based camera" 
 width="50%"/>
 
- <br/>
 Event based cameras have been proved to have relative advantages over traditional cameras in the following aspects:
 
 1. High temporal resolution
@@ -60,25 +59,26 @@ because our algorithm only penalizes the time difference, but lacks the penalty 
 This problem has been improved in [subsequent papers](https://mediatum.ub.tum.de/doc/1254531/131347.pdf).
 
 ## Usage
-See template.py
+See [template.py](template.py)
 
 ## Result
 The result of our algorithm is a disparity map, which is shown below. The maximum disparity in the example is 20. 
 The detailed results are in the directory "result".
 
-<p align="center">
-    <img 
+<img 
 src="results/result_flying/216.png" 
 alt="example" 
 width="50%"/>
-</p>
-
-
- <br/>
+<br/>
 
 [![Everything Is AWESOME](results/result_flying/166.png)](https://www.youtube.com/watch?v=7JHg-Kj7ppA "simulation flying grayscale")
 
 ## Reference
-[Kogler et al., Address-Event Based Stereo Vision with Bio-Inspired Silicon Retina Imagers, Advances in Theory and Applications of Stereo Vision (2011), pp. 165-188.](https://u.pcloud.link/publink/show?code=XZ0QktkZJeG08fzrsT0y587cBu2vpy3EEbk7)
+[Kogler et al., Address-Event Based Stereo Vision with Bio-Inspired Silicon Retina Imagers, Advances in Theory and Applications of Stereo Vision (2011), pp. 165-188.]
+(https://u.pcloud.link/publink/show?code=XZ0QktkZJeG08fzrsT0y587cBu2vpy3EEbk7)
 
-[Firouzi, M. & Conradt, J., Asynchronous Event-based Cooperative Stereo Matching Using Neuromorphic Silicon Retinas, Neural Processing Letters, 43(2):311-326, Apr. 2016.](https://mediatum.ub.tum.de/doc/1254531/131347.pdf)
+[Firouzi, M. & Conradt, J., Asynchronous Event-based Cooperative Stereo Matching Using Neuromorphic Silicon Retinas, Neural Processing Letters, 43(2):311-326, Apr. 2016.]
+(https://mediatum.ub.tum.de/doc/1254531/131347.pdf)
+
+[Gallego, Guillermo & Lund, Jon & Mueggler, Elias & Rebecq, Henri & Delbruck, Tobi & Scaramuzza, Davide. (2017). Event-based, 6-DOF Camera Tracking from Photometric Depth Maps. IEEE Transactions on Pattern Analysis and Machine Intelligence. PP. 1-1. 10.1109/TPAMI.2017.2769655.] 
+(https://www.researchgate.net/figure/An-event-camera-and-its-output_fig2_320847681)
