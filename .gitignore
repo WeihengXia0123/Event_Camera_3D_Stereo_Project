@@ -5,7 +5,6 @@
 /*.png
 .idea/
 __pycache__/
-sim_flying_room_stereo/
 tempDir/
 tmp/
 /*.avi

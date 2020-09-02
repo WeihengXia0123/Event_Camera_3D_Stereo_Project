@@ -16,11 +16,43 @@ Event based cameras have been proved to have relative advantages over traditiona
 The only shortcoming is the lack of supported algorithms, and the direct way to solve this shortcoming is to implement applications on this technology. 
 Stereo vision is often used to judge the distance between objects and the camera. And the advantages of our event-based cameras can well cope with various scene needs. Therefore, the transition from frame-based stereo algorithm to event-based stereo algorithm is our main task in this project.
 
+## Demo Result
+The result of our algorithm is a disparity map, which is shown below. The maximum disparity in the example is 20. 
+The detailed results are in the directory "result".
+
+<img src=result_simple/output.gif class="Berlinale" />
+
+<center>GIF 1: Berlinale simple dataset</center>
+
+<img src=result_drone_2/sim_drone_2.gif class="Sim flying grayscale" />
+
+<center>GIF 2: Sim flying dataset (grayscale)</center>
+
+<img src=result_drone_1/sim_drone_1.gif class="Sim flying rgb" />
+
+<center>GIF 3: Sim flying dataset (rgb)</center>
+
+## Dependency Management
+- OpenCV 3.2.0
+- Matplotlib
+- Numpy
+- Bisect
+
+## How to Run
+simply run the python file `main.py`. (Remember to change the path in it before runnning, and all dependencies are installed)
+
+```bash
+python main.py
+```
+
+## Final Presentation Slides 
+[Google Slides URL](https://docs.google.com/presentation/d/1hg7MPrVMzfTuldxYCbZF2HoyQo4BEiYU8j1BErXMcn0/edit?usp=sharing)
+
 ## Workflow
 <img 
 src="images/workflow.png" 
 alt="Workflow" 
-width="50%"/>
+width="80%"/>
 
 * The above figure is taken from our guidance paper, which describes the entire data processing flow. 
 The whole process is roughly divided into three parts.The first part is data preprocessing, 
@@ -91,32 +123,14 @@ we found that setting the maximum disparity value incorrectly will lead to very 
 because our algorithm only penalizes the time difference, but lacks the penalty for the relative distance of the event.
 This problem has been improved in [subsequent papers](https://mediatum.ub.tum.de/doc/1254531/131347.pdf).
 
-## Usage
-See [template.py](template.py)
-
-## Result
-The result of our algorithm is a disparity map, which is shown below. The maximum disparity in the example is 20. 
-The detailed results are in the directory "result".
-
-<img src=result_simple/output.gif class="Berlinale" />
-
-<center>GIF 1: Berlinale simple dataset</center>
-
-<img src=result_drone_2/sim_drone_2.gif class="Sim flying grayscale" />
-
-<center>GIF 2: Sim flying dataset (grayscale)</center>
-
-<img src=result_drone_1/sim_drone_1.gif class="Sim flying rgb" />
-
-<center>GIF 3: Sim flying dataset (rgb)</center>
 
 ## Reference
 
-[Kogler et al., Address-Event Based Stereo Vision with Bio-Inspired Silicon Retina Imagers, Advances in Theory and Applications of Stereo Vision (2011), pp. 165-188.]
+1. [Kogler et al., Address-Event Based Stereo Vision with Bio-Inspired Silicon Retina Imagers, Advances in Theory and Applications of Stereo Vision (2011), pp. 165-188.]
 (https://u.pcloud.link/publink/show?code=XZ0QktkZJeG08fzrsT0y587cBu2vpy3EEbk7)
 
-[Firouzi, M. & Conradt, J., Asynchronous Event-based Cooperative Stereo Matching Using Neuromorphic Silicon Retinas, Neural Processing Letters, 43(2):311-326, Apr. 2016.]
+2. [Firouzi, M. & Conradt, J., Asynchronous Event-based Cooperative Stereo Matching Using Neuromorphic Silicon Retinas, Neural Processing Letters, 43(2):311-326, Apr. 2016.]
 (https://mediatum.ub.tum.de/doc/1254531/131347.pdf)
 
-[Gallego, Guillermo & Lund, Jon & Mueggler, Elias & Rebecq, Henri & Delbruck, Tobi & Scaramuzza, Davide. (2017). Event-based, 6-DOF Camera Tracking from Photometric Depth Maps. IEEE Transactions on Pattern Analysis and Machine Intelligence. PP. 1-1. 10.1109/TPAMI.2017.2769655.] 
+3. [Gallego, Guillermo & Lund, Jon & Mueggler, Elias & Rebecq, Henri & Delbruck, Tobi & Scaramuzza, Davide. (2017). Event-based, 6-DOF Camera Tracking from Photometric Depth Maps. IEEE Transactions on Pattern Analysis and Machine Intelligence. PP. 1-1. 10.1109/TPAMI.2017.2769655.] 
 (https://www.researchgate.net/figure/An-event-camera-and-its-output_fig2_320847681)
