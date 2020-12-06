@@ -20,8 +20,7 @@ Stereo vision is often used to judge the distance between objects and the camera
 <img
 src="images/stereo-depth-estimation.jpeg"
 alt="depth-estimation"
-width="60%"
->
+width="60%"/>
 
 ## Demo Result
 The result of our algorithm is a disparity map, which is shown below. The maximum disparity in the example is 20. 
