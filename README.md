@@ -19,6 +19,7 @@ Stereo vision is often used to judge the distance between objects and the camera
 ## Motivation for disparity estimation
 As we can use in the figure below, to calcute the depth, we can use the function below and the only variable we don't know yet is the `d`, which is the disparity. According to Wikipedia, "binocular disparity refers to the difference in coordinates of similar features within two stereo images. "
 <img
+align="center"
 src="images/stereo-depth-estimation.jpeg"
 alt="depth-estimation"
 width="30%"/>
