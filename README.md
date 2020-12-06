@@ -16,6 +16,13 @@ Event based cameras have been proved to have relative advantages over traditiona
 The only shortcoming is the lack of supported algorithms, and the direct way to solve this shortcoming is to implement applications on this technology. 
 Stereo vision is often used to judge the distance between objects and the camera. And the advantages of our event-based cameras can well cope with various scene needs. Therefore, the transition from frame-based stereo algorithm to event-based stereo algorithm is our main task in this project.
 
+## Depth Estimation
+<img
+src="images/stereo-depth-estimation.jpeg"
+alt="depth-estimation"
+width="60%"
+>
+
 ## Demo Result
 The result of our algorithm is a disparity map, which is shown below. The maximum disparity in the example is 20. 
 The detailed results are in the directory "result".
