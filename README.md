@@ -4,7 +4,7 @@
 <img 
 src="https://www.researchgate.net/profile/Guillermo_Gallego/publication/320847681/figure/fig2/AS:613514209148984@1523284594697/An-event-camera-and-its-output.png" 
 alt="Event based camera" 
-width="20%"/>
+width="50%"/>
 
 
 Event based cameras have been proved to have relative advantages over traditional cameras in the following aspects:
@@ -20,7 +20,7 @@ Stereo vision is often used to judge the distance between objects and the camera
 <img
 src="images/stereo-depth-estimation.jpeg"
 alt="depth-estimation"
-width="60%"/>
+width="30%"/>
 
 ## Demo Result
 The result of our algorithm is a disparity map, which is shown below. The maximum disparity in the example is 20. 
