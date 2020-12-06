@@ -16,7 +16,8 @@ Event based cameras have been proved to have relative advantages over traditiona
 The only shortcoming is the lack of supported algorithms, and the direct way to solve this shortcoming is to implement applications on this technology. 
 Stereo vision is often used to judge the distance between objects and the camera. And the advantages of our event-based cameras can well cope with various scene needs. Therefore, the transition from frame-based stereo algorithm to event-based stereo algorithm is our main task in this project.
 
-## Depth Estimation
+## Motivation for disparity estimation
+As we can use in the figure below, to calcute the depth, we can use the function below and the only variable we don't know yet is the `d`, which is the disparity. According to Wikipedia, "binocular disparity refers to the difference in coordinates of similar features within two stereo images. "
 <img
 src="images/stereo-depth-estimation.jpeg"
 alt="depth-estimation"
